@@ -4,6 +4,7 @@ function isAllowedOrigin(origin) {
   try {
     const u = new URL(origin);
     if (u.protocol === 'https:' && u.hostname.endsWith('.github.io')) return true;
+    if (u.protocol === 'https:' && (u.hostname === 'calbirds.org' || u.hostname.endsWith('.calbirds.org'))) return true;
     if (u.protocol === 'http:' && (u.hostname === 'localhost' || u.hostname === '127.0.0.1')) return true;
     return false;
   } catch {
