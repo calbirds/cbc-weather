@@ -4,6 +4,7 @@ import L from 'leaflet';
 import CountDayForm from './CountDayForm.jsx';
 import ForecastPlot from './ForecastPlot.jsx';
 import { dir16 } from '../lib/geo.js';
+import { loadCbcCircles } from '../lib/cbcCircles.js';
 import { approxUtcOffsetHoursFromLon, deriveCountDayPrefillFromMetars, fetchMetarsJSON, fetchStationInfoGeoJSON } from '../lib/aviationWeather.js';
 
 import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
@@ -801,12 +802,7 @@ export default function MapPane({
     let cancelled = false;
     if (cbcGeoJson) return undefined;
 
-    const cbcUrl = new URL('../../data/cbc_circles_merged.geojson', import.meta.url);
-    if (import.meta.env.DEV) {
-      cbcUrl.searchParams.set('v', String(Date.now()));
-    }
-
-    loadGeoJson(cbcUrl)
+    loadCbcCircles()
       .then((data) => {
         if (!cancelled) setCbcGeoJson(data);
       })

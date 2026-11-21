@@ -4,6 +4,7 @@ import AboutModal from './components/AboutModal.jsx';
 
 import { geocode, fetchForecast } from './lib/openMeteo.js';
 import { parseLatLon } from './lib/geo.js';
+import { loadCbcCircles } from './lib/cbcCircles.js';
 
 function loadSaved() {
   try {
@@ -116,11 +117,7 @@ export default function App() {
     if (cbcIndexLoading) return null;
     setCbcIndexLoading(true);
     try {
-      const url = new URL('../data/cbc_circles_merged.geojson', import.meta.url);
-      if (import.meta.env.DEV) url.searchParams.set('v', String(Date.now()));
-      const res = await fetch(url, { cache: 'no-store' });
-      if (!res.ok) throw new Error(`Failed to load CBC circles (${res.status})`);
-      const data = await res.json();
+      const data = await loadCbcCircles();
 
       const items = [];
       for (const f of (data?.features || [])) {

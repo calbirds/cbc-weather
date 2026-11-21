@@ -41,7 +41,7 @@ export default function AboutModal({ open, onClose }) {
         <div className="modalBody">
           <p>
             The Christmas Bird Count is the nation’s longest-running community science bird project. It occurs
-            December 14 to January 5 every season in over 3000 count circles. More information can be found on the{' '}
+            annually between December 14 and January 5 in over 3,000 count circles. More information can be found on the{' '}
             <a
               href="https://www.audubon.org/community-science/christmas-bird-count"
               target="_blank"
