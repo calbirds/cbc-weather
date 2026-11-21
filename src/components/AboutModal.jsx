@@ -102,6 +102,17 @@ export default function AboutModal({ open, onClose }) {
             <a href={SOURCE_CODE_URL} target="_blank" rel="noopener noreferrer">GitHub</a>
           </p>
 
+          <p className="credit">
+            © 2026 Bart Wickel / Metolius Research<br />
+            built with help from{' '}
+            <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude</a>
+          </p>
+          <p className="coffee">
+            <a href="https://buymeacoffee.com/bartg" target="_blank" rel="noopener noreferrer">
+              <span aria-hidden="true">☕</span> Buy me a coffee
+            </a>
+          </p>
+
 
         </div>
       </div>

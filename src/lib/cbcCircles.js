@@ -1,4 +1,4 @@
-const DATES_URL = 'https://cbc-dates.calbirds.org/data/circles.json';
+const DATES_URL = new URL(`${import.meta.env.BASE_URL}data/cbc_dates.json`, document.baseURI);
 const STATIC_URL = new URL('../../data/cbc_circles_merged.geojson', import.meta.url);
 
 let cached = null;
