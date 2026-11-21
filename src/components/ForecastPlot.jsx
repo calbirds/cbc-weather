@@ -168,15 +168,20 @@ export default function ForecastPlot({ forecast, highlightDateISO, extendXAxisTo
         const icon = weathercodeToOpenWeatherIcon(code);
         const iconUrl = `https://openweathermap.org/img/wn/${icon}@4x.png`;
 
+        const narrow = (divRef.current?.clientWidth || window.innerWidth) < 560;
         const tPart = (Number.isFinite(tmax) && Number.isFinite(tmin))
-          ? `<b>${Math.round(tmin)} / ${Math.round(tmax)} ${tempUnitLabel}</b>`.trim()
+          ? (narrow
+            ? `<b>${Math.round(tmin)}/${Math.round(tmax)}°</b>`
+            : `<b>${Math.round(tmin)} / ${Math.round(tmax)} ${tempUnitLabel}</b>`.trim())
           : '';
 
         const rPart = (rainTotal !== null && Number.isFinite(rainTotal))
-          ? `${rainTotal.toFixed(2)} ${precipUnitLabel}`
+          ? (narrow ? `${rainTotal.toFixed(2)}${precipUnitLabel}` : `${rainTotal.toFixed(2)} ${precipUnitLabel}`)
           : '';
 
-        const wPart = Number.isFinite(windMax) ? `${Math.round(windMax)} ${windUnitLabel}` : '';
+        const wPart = Number.isFinite(windMax)
+          ? (narrow ? `${Math.round(windMax)}${windUnitLabel.replace(/[^a-z]/gi, '')}` : `${Math.round(windMax)} ${windUnitLabel}`)
+          : '';
         const dPart = Number.isFinite(windDir) ? dir16(windDir) : '';
 
         const lines = [tPart, rPart, wPart, dPart].filter((s) => String(s).trim() !== '');
@@ -207,7 +212,7 @@ export default function ForecastPlot({ forecast, highlightDateISO, extendXAxisTo
           xanchor: 'center',
           yanchor: 'bottom',
           align: 'center',
-          font: { size: 11, color: '#111827' }
+          font: { size: narrow ? 9 : 11, color: '#111827' }
         });
       }
     }
