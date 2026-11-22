@@ -447,3 +447,18 @@ input, button, select, textarea {
 .modalBody .coffee{text-align:center;margin:12px 0 2px}
 .modalBody .coffee a{display:inline-flex;align-items:center;gap:6px;background:#ffdd00;color:#1f2427;font-weight:700;font-size:12.5px;text-decoration:none;padding:6px 14px;border-radius:8px;border:1px solid rgba(0,0,0,.12)}
 .modalBody .coffee a:hover{background:#ffe633}
+
+.leaflet-container .leaflet-control-attribution .attr-sources {
+  display: inline-block;
+  max-width: 14rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  vertical-align: bottom;
+}
+
+.leaflet-container .leaflet-control-attribution:hover .attr-sources,
+.leaflet-container .leaflet-control-attribution:focus-within .attr-sources {
+  max-width: none;
+  white-space: normal;
+}

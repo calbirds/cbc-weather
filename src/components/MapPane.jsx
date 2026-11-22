@@ -1258,14 +1258,14 @@ export default function MapPane({
           <LayersControl position="topright" collapsed={false}>
             <LayersControl.BaseLayer checked name={OSM_LAYER_NAME}>
               <TileLayer
-                attribution="&copy; OpenStreetMap contributors"
-                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution={'&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap</a> contributors'}
+                url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
                 maxZoom={19}
               />
             </LayersControl.BaseLayer>
             <LayersControl.BaseLayer name={ESRI_LAYER_NAME}>
               <TileLayer
-                attribution="Tiles &copy; Esri"
+                attribution={'Powered by <a href="https://www.esri.com/" target="_blank" rel="noopener noreferrer">Esri</a> <span class="attr-sources">&mdash; Source: Esri, Vantor, Earthstar Geographics, and the GIS User Community</span>'}
                 url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
                 maxZoom={19}
               />
@@ -1273,7 +1273,7 @@ export default function MapPane({
 
             <LayersControl.BaseLayer name={ESRI_TOPO_LAYER_NAME}>
               <TileLayer
-                attribution="Tiles &copy; Esri"
+                attribution={'Powered by <a href="https://www.esri.com/" target="_blank" rel="noopener noreferrer">Esri</a> <span class="attr-sources">&mdash; Sources: Esri, HERE, Garmin, Intermap, increment P Corp., GEBCO, USGS, FAO, NPS, NRCAN, GeoBase, IGN, Kadaster NL, Ordnance Survey, Esri Japan, METI, Esri China (Hong Kong), &copy; OpenStreetMap contributors, and the GIS User Community</span>'}
                 url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}"
                 maxZoom={19}
               />
