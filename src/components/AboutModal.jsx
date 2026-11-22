@@ -103,7 +103,8 @@ export default function AboutModal({ open, onClose }) {
           </p>
 
           <p className="credit">
-            © 2026 Bart Wickel / Metolius Research<br />
+            © 2026 Bart Wickel /{' '}
+            <a href="https://calbirds.org/" target="_blank" rel="noopener noreferrer">CalBirds</a><br />
             built with help from{' '}
             <a href="https://claude.ai/" target="_blank" rel="noopener noreferrer">Claude</a>
           </p>
