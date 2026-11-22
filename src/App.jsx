@@ -627,7 +627,10 @@ export default function App() {
       />
       </div>
       <footer className="footerbar">
-        <span className="footerCopyright">(C) Bart Wickel, 2026</span>
+        <span className="footerCopyright">
+          © 2026 Bart Wickel /{' '}
+          <a href="https://calbirds.org/" target="_blank" rel="noopener noreferrer" style={{ color: 'inherit' }}>CalBirds</a>
+        </span>
       </footer>
     </div>
   );
